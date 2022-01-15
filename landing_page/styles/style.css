@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+body{
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero{
+    padding: 0 9%;
+    background: #1f2937;
+    color: white;
+}
+.hero a{
+    color: white;
+    text-decoration: none;
+}
+.nav{
+    display: flex;
+    padding: 1em;
+    justify-content: space-between;
+}
+.logo-text{
+    font-size: 24px;
+    color: #f9faf8;
+    font-weight: bold;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    gap:2rem;
+    margin: 0;
+}
+.nav-links li{
+    list-style: none;
+}
+
+.hero-content{
+    display: flex;
+    justify-content: space-between;
+    padding: 3% 0;
+    align-items: center;
+}
+.hero-img{
+    width: 400px;
+}
+.hero-content>.text-content{
+    width: 500px;
+}
+.hero-secondary-text{
+    margin-bottom: 40px;
+}
+
+.sign-up-btn{
+    background: #3882f6;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.features-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+.features{
+    display: flex;
+    justify-content: center;
+    gap:50px;
+}
+.feature{
+    width: 160px;
+    text-align: center;
+}
+.feature-img{
+    border:5px solid #3882f6;
+    border-radius: 10px;
+    width: 160px;
+    height: 160px;
+}
+
+.quote-section{
+    padding: 5% 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #e5e7eb
+}
+.quote{
+    font-size: 36px;
+    font-style: italic;
+    font-weight: light;
+    color: #1f2937;
+    font-family: 'Fira Code', monospace;
+}
+.quote-author{
+    align-self: flex-end;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cta-section{
+    padding: 3% 10%;
+}
+.cta-card{
+    background: #3882f6;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    padding: 3%;
+}
+.cta-signup-btn{
+    background: #3882f6;
+    padding: 15px;
+    border-radius: 15px;
+    border:2px solid white;
+    text-decoration: none;
+    color: white;
+}
+footer{
+    padding: 3%;
+    text-align: center;
+    background: #1f2937;
+    color: white;
+}
