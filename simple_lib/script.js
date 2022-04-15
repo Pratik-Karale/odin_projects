@@ -23,12 +23,12 @@ class Book {
         this.read = read
         this.isDeleted = false
         this.elem = Helper.makeElement(`
-        <table>
         <tr data-book="${name}">
             <td class="book-name">${name}</td>
             <td><button class="delete-btn">Delete</button></td>
             <td><button class="read-btn">${this.read ? 'read' : 'not read'}</button></td>
-        </tr></table>`)
+        </tr>`)
+        console.log(this.elem)
         this.readToggleBtn = this.elem.querySelector(".read-btn")
         this.deleteBtn = this.elem.querySelector(".delete-btn")
         this.addBtnEvtListeners()
@@ -39,10 +39,38 @@ class Book {
 class Library {
     addAddBtnEvent(){
         this.table.querySelector(".add-btn").addEventListener("click",()=>{
-            this.add()
-            updateLib()
-        })
-    }   
+            const popup=Helper.makeElement(`
+            <div id="add-book-popup">
+            <h2>Add A Book</h2>
+            <form>
+            <div>
+            <label for="mail">Book Name: </label>
+            <input type="text" id="book-name-input" name="bookName" minlength="1"></div>
+            <div>
+            <input type="radio" name="read-status" id="read-status-input">
+            <label for="read-statues-input">Read</label>
+            </div>
+            <button type="button" class="popup-add-btn">Add book</button>
+          </form>
+          </div>`)
+          const popupBtn=popup.querySelector(".popup-add-btn")
+          const bookNameInput=popup.querySelector("#book-name-input")
+          const readStatusInput=popup.querySelector("#read-status-input")
+        //   popup.querySelector("form").
+            popupBtn.addEventListener("click",()=>{
+                if(bookNameInput.value==""){
+                    bookNameInput.setCustomValidity("oi oi thats definetly not a book name")
+                    bookNameInput.reportValidity()
+                    return
+                }
+                const bookName=bookNameInput.value
+                const bookRead=readStatusInput.value=="on"
+                const book = new Book(bookName, bookRead,this)
+                this.books.push(book)
+                document.querySelector("tbody").appendChild(book.elem)
+            })
+            document.body.appendChild(popup)
+        })}   
     constructor() {
         this.books = []
         this.table = Helper.makeElement(`
@@ -63,14 +91,6 @@ class Library {
         this.addAddBtnEvent()
 
         document.body.appendChild(this.table)
-    }
-    
-    add() {
-        let bookName = prompt("Enter Books Name: ")
-        let bookRead = confirm("Did Ya read the book? ")
-        const book = new Book(bookName, bookRead,this)
-        this.books.push(book)
-        document.querySelector("tbody").appendChild(book.elem)
     }
 
     update(){

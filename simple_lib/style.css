@@ -1,0 +1,12 @@
+
+#add-book-popup{
+    position: absolute;
+    background:lightblue;
+    display:flex;
+    flex-direction:column;
+    gap:1em;
+    border-radius:10px;
+    justify-content:center;
+    align-items:center;
+    width:50%;
+  }
